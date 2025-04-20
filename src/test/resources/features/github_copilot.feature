@@ -6,7 +6,7 @@ Feature: GitHub site - GitHub Copilot
     Then Verify Get started for free option available
     And Verify See plans and pricing option available
 
-  Scenario Outline: Verify Github copilot options for subscription
+  Scenario Outline: Verify Sign In button available
     Given Go to Github
     And Click on Try Github Copilot
     Then Verify Get started for free option available

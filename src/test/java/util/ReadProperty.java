@@ -7,6 +7,8 @@ import java.util.Properties;
 
 public class ReadProperty {
 	
+	public static String configFile = "src/test/resources/config/config.properties";
+	
 	public static Properties readPropertiesFile(String fileName) throws IOException {
 	      FileInputStream fis = null;
 	      Properties prop = null;

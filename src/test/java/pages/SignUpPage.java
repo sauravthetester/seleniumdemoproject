@@ -1,5 +1,6 @@
 package pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -9,31 +10,21 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 import base.Base;
 
-public class HomePage {
+public class SignUpPage {
+	
+	//private WebDriver driver;
 
-    public HomePage() {
+    public SignUpPage() {
     	WebDriver driver = Base.getDriver();
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 30), this); // Initialize elements
     }
 
-    @FindBy(xpath = "//div[@class='CtaForm']//a")
-    @CacheLookup
-    private WebElement tryGithubCopilot;
+    @FindBy(xpath = "//a[normalize-space()='GitHub Privacy Statement']")
+    private WebElement gitHubPrivacyStatementLink;
     
-    @FindBy(xpath = "//button//*[contains(text(),'Sign up for GitHub')]")
-    @CacheLookup
-    private WebElement signUpForGithub;
-    
-  
-    
-    public void clickOnTryGithubCopilot()
+    public void verifyGitHubPrivacyStatementLinkExists()
     {
-    	tryGithubCopilot.click();
-    }
-    
-    public void clickOnSignUpForGithub()
-    {
-    	signUpForGithub.click();
+    	Assert.assertTrue(gitHubPrivacyStatementLink.isDisplayed());
     }
 
 }

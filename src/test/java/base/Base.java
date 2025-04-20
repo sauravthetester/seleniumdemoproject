@@ -1,44 +1,54 @@
 package base;
 
-import java.time.Duration;
-
+import java.io.IOException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
-//import io.github.bonigarcia.wdm.WebDriverManager;
-//import utilities.Links;
+import com.aventstack.chaintest.plugins.ChainTestListener;
 
+import util.Browser;
+import util.ReadProperty;
+
+@Listeners(ChainTestListener.class)
 public class Base {
 	
-//	public static WebDriver driver = null;
-//	
-//	public Base()
-//	{
-//		System.out.println("BASE constructor");
-//		ChromeOptions chromeOptions = new ChromeOptions();
-//		chromeOptions.addArguments("--disable-background-timer-throttling");
-//		chromeOptions.addArguments("--disable-backgrounding-occluded-windows");
-//		chromeOptions.addArguments("--disable-breakpad");
-//		chromeOptions.addArguments("--disable-component-extensions-with-background-pages");
-//		chromeOptions.addArguments("--disable-dev-shm-usage");
-//		chromeOptions.addArguments("--disable-extensions");
-//		chromeOptions.addArguments("--disable-features=TranslateUI,BlinkGenPropertyTrees");
-//		chromeOptions.addArguments("--disable-ipc-floo p pausding-protection");
-//		chromeOptions.addArguments("--disable-renderer-backgrounding");
-//		chromeOptions.addArguments("--enable-features=NetworkService,NetworkServiceInProcess");
-//		chromeOptions.addArguments("--force-color-profile=srgb");
-//		chromeOptions.addArguments("--hide-scrollbars");
-//		chromeOptions.addArguments("--metrics-recording-only");
-//		chromeOptions.addArguments("--mute-audio");
-//		chromeOptions.addArguments("--headless=new");
-//		chromeOptions.addArguments("--no-sandbox");
+		private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 		
-//		chromeOptions.addArguments("--incognito");
-//		driver = new ChromeDriver(chromeOptions);
-//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
-//		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(180));
-//		driver.get("https://github.com/");	
-//	}
+		@BeforeMethod
+		public static void setDriver() throws IOException
+		{
+			WebDriver myDriver = BrowserFactory.getBrowser(Browser.CHROME);
+			driver.set(myDriver);
+			driver.get().get(ReadProperty.readPropertiesFile(ReadProperty.configFile).getProperty("url"));
+			System.out.println("Browser setup by Thread : " + Thread.currentThread().getId() + " and Driver reference is : "
+	               + getDriver());
+		}
+	
+		@AfterMethod
+		public static void tearDown(ITestResult result) {
+	       System.out.println("Browser closed by Thread : " + Thread.currentThread().getId()
+	               + " and Closing driver reference is :" + getDriver());
+	       if(!result.isSuccess())
+	       {
+	    	   TakesScreenshot ts = (TakesScreenshot) Base.getDriver();
+	    	   byte[] src = ts.getScreenshotAs(OutputType.BYTES);
+	    	   ChainTestListener.embed(src, "image/png");
+	       }
+	       closeBrowser();
+		}
+		
+		public static WebDriver getDriver() {
+			return driver.get();
+		}
+		
+		public static void closeBrowser() {
+			driver.get().close();
+			driver.remove();	
+		}
 
 }

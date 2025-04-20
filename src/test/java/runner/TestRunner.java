@@ -1,16 +1,29 @@
 package runner;
 
 import io.cucumber.testng.CucumberOptions;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+
+import com.aventstack.chaintest.plugins.ChainTestListener;
+
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 
+@Listeners(ChainTestListener.class)
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"steps"},
         dryRun = false,
         monochrome = true,
-//        tags = "@regression",
+        //tags = "@regression",
         plugin = {"pretty", "html:target/cucumber-reports"}
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
+	
+		@Override
+		@DataProvider(parallel = true)
+		public Object[][] scenarios() {
+			return super.scenarios();
+		}
 	
 }
