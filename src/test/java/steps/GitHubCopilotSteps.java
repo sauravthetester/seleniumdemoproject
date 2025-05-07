@@ -6,6 +6,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import listener.LogListener;
 import pages.CopilotPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -14,20 +15,23 @@ import util.ReadProperty;
 import java.io.IOException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-
 import com.aventstack.chaintest.plugins.ChainTestListener;
-
 import base.Base;
 import base.BrowserFactory;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 
 public class GitHubCopilotSteps{
 	public HomePage homePage = null;
 	public CopilotPage copilotPage = null;
 	public LoginPage loginPage = null;
+	private static final Logger logger = LogManager.getLogger(LogListener.class);
 	
 	@Before
-	public void before() throws IOException {
+	public void before(Scenario scenario) throws IOException {
+		logger.info("STARTED: " + scenario.getName());
 		Base.setDriver();
 		Base.getDriver().get(ReadProperty.readPropertiesFile(ReadProperty.configFile).getProperty("url"));
 		System.out.println("Browser setup by Thread : " + Thread.currentThread().getId() + " and Driver reference is : "
@@ -36,6 +40,7 @@ public class GitHubCopilotSteps{
 	
 	@After
 	public void after_all(Scenario scenario) {
+		logger.info(scenario.getStatus()+": " + scenario.getName());
 		if (scenario.isFailed()) {
 			TakesScreenshot ts = (TakesScreenshot) Base.getDriver();
 			byte[] src = ts.getScreenshotAs(OutputType.BYTES);

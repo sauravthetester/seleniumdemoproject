@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
 import com.aventstack.chaintest.plugins.ChainTestListener;
@@ -19,6 +20,11 @@ public class Base {
 	
 		private static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 		
+		@BeforeSuite
+		public void beforeSuite()
+		{
+			System.setProperty("log4j.configurationFile", "src/test/resources/log4j2.xml");
+		}
 		@BeforeMethod
 		public static void setDriver() throws IOException
 		{

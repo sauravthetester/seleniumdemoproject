@@ -1,0 +1,74 @@
+[2025-05-02 02:33:31] [TestNG-PoolService-1] INFO  listener.LogListener - STARTED: Verify Sign In button available
+[2025-05-02 02:33:31] [TestNG-PoolService-2] INFO  listener.LogListener - STARTED: Verify Sign In button available
+[2025-05-02 02:33:31] [TestNG-PoolService-0] INFO  listener.LogListener - STARTED: Verify Github copilot options for subscription
+[2025-05-02 02:33:34] [TestNG-test=CucumberTest-2] INFO  listener.LogListener - STARTED: verifyGitHubPrivacyStatementLink
+[2025-05-02 02:33:38] [TestNG-test=CucumberTest-2] INFO  listener.LogListener - Retrying: SignUpTest.verifyGitHubPrivacyStatementLink()[pri:0, instance:tests.SignUpTest@71454b9d]
+[2025-05-02 02:33:40] [TestNG-PoolService-0] INFO  listener.LogListener - PASSED: Verify Github copilot options for subscription
+[2025-05-02 02:33:43] [TestNG-test=CucumberTest-2] INFO  listener.LogListener - STARTED: verifyGitHubPrivacyStatementLink
+[2025-05-02 02:33:45] [TestNG-PoolService-2] INFO  listener.LogListener - PASSED: Verify Sign In button available
+[2025-05-02 02:33:49] [TestNG-PoolService-1] INFO  listener.LogListener - PASSED: Verify Sign In button available
+[2025-05-02 02:33:49] [TestNG-test=CucumberTest-2] INFO  listener.LogListener - Retrying: SignUpTest.verifyGitHubPrivacyStatementLink()[pri:0, instance:tests.SignUpTest@71454b9d]
+[2025-05-02 02:33:54] [TestNG-test=CucumberTest-2] INFO  listener.LogListener - STARTED: verifyGitHubPrivacyStatementLink
+[2025-05-02 02:34:00] [TestNG-test=CucumberTest-2] ERROR listener.LogListener - FAILED: verifyGitHubPrivacyStatementLink
+org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=125.0.6422.76)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '14.6.1', java.version: '18.0.2.1'
+Driver info: org.openqa.selenium.remote.RemoteWebDriver
+Command: [d940855be7617c85bcd57c55ff1a7ef1, clickElement {id=f.9B14B7715D0B0EB2419BB36082949B26.d.07565F400973DEB8FA61E330501BF34F.e.25}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 125.0.6422.76, chrome: {chromedriverVersion: 125.0.6422.76 (67dcf7562b8f..., userDataDir: /tmp/.org.chromium.Chromium...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:43223}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: linux, proxy: Proxy(), se:bidiEnabled: false, se:cdp: ws://172.20.0.3:4444/sessio..., se:cdpVersion: 125.0.6422.76, se:vnc: ws://172.20.0.3:4444/sessio..., se:vncEnabled: true, se:vncLocalAddress: ws://172.20.0.3:7900, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[RemoteWebDriver: chrome on linux (d940855be7617c85bcd57c55ff1a7ef1)] -> xpath: //button//*[contains(text(),'Sign up for GitHub')]]
+Session ID: d940855be7617c85bcd57c55ff1a7ef1
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:67) ~[?:?]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483) ~[?:?]
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167) ~[selenium-remote-driver-4.29.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138) ~[selenium-remote-driver-4.29.0.jar:?]
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50) ~[selenium-remote-driver-4.29.0.jar:?]
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215) ~[selenium-remote-driver-4.29.0.jar:?]
+	at org.openqa.selenium.remote.TracedCommandExecutor.execute(TracedCommandExecutor.java:53) ~[selenium-remote-driver-4.29.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545) ~[selenium-remote-driver-4.29.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223) ~[selenium-remote-driver-4.29.0.jar:?]
+	at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:76) ~[selenium-remote-driver-4.29.0.jar:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.openqa.selenium.support.decorators.WebDriverDecorator.call(WebDriverDecorator.java:315) ~[selenium-remote-driver-4.29.0.jar:?]
+	at org.openqa.selenium.support.decorators.DefaultDecorated.call(DefaultDecorated.java:48) ~[selenium-remote-driver-4.29.0.jar:?]
+	at org.openqa.selenium.support.decorators.WebDriverDecorator.lambda$createProxyFactory$3(WebDriverDecorator.java:405) ~[selenium-remote-driver-4.29.0.jar:?]
+	at net.bytebuddy.renamed.java.lang.Object$ByteBuddy$cDQcDKIx.click(Unknown Source) ~[?:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51) ~[selenium-support-4.29.0.jar:?]
+	at jdk.proxy2/jdk.proxy2.$Proxy66.click(Unknown Source) ~[?:?]
+	at pages.HomePage.clickOnSignUpForGithub(HomePage.java:36) ~[test-classes/:?]
+	at tests.SignUpTest.verifyGitHubPrivacyStatementLink(SignUpTest.java:32) ~[test-classes/:?]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139) ~[testng-7.7.1.jar:7.7.1]
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677) [testng-7.7.1.jar:7.7.1]
+	at org.testng.internal.invokers.TestInvoker.retryFailed(TestInvoker.java:263) [testng-7.7.1.jar:7.7.1]
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:62) [testng-7.7.1.jar:7.7.1]
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969) [testng-7.7.1.jar:7.7.1]
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194) [testng-7.7.1.jar:7.7.1]
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148) [testng-7.7.1.jar:7.7.1]
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128) [testng-7.7.1.jar:7.7.1]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) [?:?]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) [?:?]
+	at java.base/java.lang.Thread.run(Thread.java:833) [?:?]
+[2025-05-02 19:43:30] [TestNG-PoolService-1] INFO  listener.LogListener - STARTED: Verify Sign In button available
+[2025-05-02 19:43:30] [TestNG-PoolService-2] INFO  listener.LogListener - STARTED: Verify Sign In button available
+[2025-05-02 19:43:30] [TestNG-PoolService-0] INFO  listener.LogListener - STARTED: Verify Github copilot options for subscription
+[2025-05-02 19:43:34] [TestNG-test=CucumberTest-2] INFO  listener.LogListener - STARTED: verifyGitHubPrivacyStatementLink
+[2025-05-02 19:43:35] [TestNG-PoolService-2] INFO  listener.LogListener - FAILED: Verify Sign In button available
+[2025-05-02 19:43:36] [TestNG-PoolService-1] INFO  listener.LogListener - FAILED: Verify Sign In button available
+[2025-05-02 19:43:36] [TestNG-test=CucumberTest-2] INFO  listener.LogListener - PASSED: verifyGitHubPrivacyStatementLink
+[2025-05-02 19:43:42] [TestNG-PoolService-0] INFO  listener.LogListener - PASSED: Verify Github copilot options for subscription
+[2025-05-02 19:44:57] [main] INFO  listener.LogListener - STARTED: Verify Sign In button available
+[2025-05-02 19:45:03] [main] INFO  listener.LogListener - FAILED: Verify Sign In button available
+[2025-05-02 19:45:05] [main] INFO  listener.LogListener - STARTED: Verify Sign In button available
+[2025-05-02 19:45:11] [main] INFO  listener.LogListener - FAILED: Verify Sign In button available
+[2025-05-02 19:46:53] [main] INFO  listener.LogListener - STARTED: Verify Sign In button available
+[2025-05-02 19:49:06] [main] INFO  listener.LogListener - PASSED: Verify Sign In button available
+[2025-05-02 19:49:06] [main] INFO  listener.LogListener - STARTED: Verify Sign In button available
+[2025-05-02 19:49:22] [main] INFO  listener.LogListener - PASSED: Verify Sign In button available

@@ -1,8 +1,11 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.testng.annotations.Test;
 import base.Base;
+import listener.RetryAnalyzer;
 import pages.CopilotPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -16,8 +19,9 @@ public class SignUpTest extends Base{
 	public CopilotPage copilotPage = null;
 	public LoginPage loginPage = null;
 	public SignUpPage signUpPage = null;
+
 	
-	@Test
+	@Test(retryAnalyzer = RetryAnalyzer.class)
 	public void verifyGitHubPrivacyStatementLink()
 	{
 		homePage = new HomePage();
