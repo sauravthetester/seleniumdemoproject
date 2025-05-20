@@ -16,7 +16,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
         dryRun = false,
         monochrome = true,
         //tags = "@regression",
-        plugin = {"pretty", "html:target/cucumber-reports","rerun:target/failed_scenarios.txt"}
+        plugin = {"pretty", "html:target/cucumber-reports","json:target/cucumber.json","rerun:target/failed_scenarios.txt"}
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 	

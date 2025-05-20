@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
 @Listeners(ChainTestListener.class)
 @CucumberOptions(
 		features = "@target/failed_scenarios.txt",
-	    plugin = {"pretty","html:target/rerun-report"},
+	    plugin = {"pretty","json:target/cucumber.json","html:target/rerun-report"},
 	    glue = {"steps"},
 	    dryRun = false,
         monochrome = true
