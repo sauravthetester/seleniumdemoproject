@@ -26,5 +26,10 @@ public class SignUpPage {
     {
     	Assert.assertTrue(gitHubPrivacyStatementLink.isDisplayed());
     }
+    
+    public void clickGitHubPrivacyStatementLink()
+    {
+    	gitHubPrivacyStatementLink.click();
+    }
 
 }

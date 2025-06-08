@@ -13,7 +13,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"steps"},
-        dryRun = false,
+        dryRun = true,
         monochrome = true,
         //tags = "@regression",
         plugin = {"pretty", "html:target/cucumber-reports","json:target/cucumber.json","rerun:target/failed_scenarios.txt"}

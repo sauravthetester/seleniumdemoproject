@@ -25,6 +25,10 @@ public class CopilotPage {
     @CacheLookup
     private WebElement seePlansAndPricing;
     
+    @FindBy(xpath = "//span[text()='Try GitHub Copilot Pro']/../parent::button")
+    @CacheLookup
+    private WebElement tryGitHubCopilotPro;
+    
     @FindBy(xpath = "//a[contains(@data-analytics-event,'click to go to homepage') and normalize-space()='Sign in']/..")
     @CacheLookup
     private WebElement signInOption;
@@ -33,6 +37,11 @@ public class CopilotPage {
     public void clickOnSignIn()
     {
     	signInOption.click();
+    }
+    
+    public void clickOnTryGitHubCopilotPro()
+    {
+    	tryGitHubCopilotPro.click();
     }
     
     public void clickOnGetStartedForFree()

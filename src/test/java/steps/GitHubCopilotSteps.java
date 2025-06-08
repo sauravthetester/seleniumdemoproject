@@ -63,6 +63,11 @@ public class GitHubCopilotSteps{
 	    copilotPage = new CopilotPage();
 	}
 	
+	@Then("Click on Try Github Copilot Pro")
+	public void click_on_try_github_copilot_pro() {
+		copilotPage.clickOnTryGitHubCopilotPro();
+	}
+	
 	@Then("Verify Get started for free option available")
 	public void verify_get_started_for_free_option_available() {
 		copilotPage.verifyGetStartedForFreeDisplayed();
